@@ -10,13 +10,11 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
 
-bool callback(cwru_srv::simple_bool_service_messageRequest& request, cwru_srv::simple_bool_service_messageResponse& response)
+bool callback(cwru_srv::simple_bool_service_messageRequest& request,
+              cwru_srv::simple_bool_service_messageResponse& response)
 {
-    ROS_INFO("callback activated");
-
-    
+  ROS_INFO("callback activated");
   return true;
 }
 
@@ -26,7 +24,7 @@ int main(int argc, char **argv)
   ros::NodeHandle n;
 
   ros::ServiceServer service = n.advertiseService("trivial_ros_service", callback);
-  ROS_INFO("starting trivial ros service loop");
+  ROS_INFO("Starting trivial ROS service loop...");
   ros::spin();
 
   return 0;

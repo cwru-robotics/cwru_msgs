@@ -1,23 +1,38 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(cwru_action)
 
-find_package(catkin_simple REQUIRED)
+find_package(catkin REQUIRED COMPONENTS
+  actionlib
+  actionlib_msgs
+  message_generation
+  geometry_msgs
+  std_msgs
+  trajectory_msgs
+)
 
-catkin_simple()
+# Generate actions in the 'action' folder
+add_action_files(
+  FILES
+  cart_move.action
+  cwru_baxter_cart_move.action
+  merry_get_can.action
+  traj.action
+)
 
-# example boost usage
-# find_package(Boost REQUIRED COMPONENTS system thread)
+## Generate added messages and services with any dependencies listed here
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+  geometry_msgs
+  trajectory_msgs
+  actionlib_msgs
+)
 
-# C++0x support - not quite the same as final C++11!
-# SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+catkin_package(
+  CATKIN_DEPENDS actionlib actionlib_msgs std_msgs trajectory_msgs
+  DEPENDS message_runtime
+)
 
-# Libraries
-# cs_add_library(my_lib src/my_lib.cpp)   
-
-# Executables 
-# cs_add_executable(example src/example.cpp)
-# target_link_library(example my_lib)
-
-cs_install()
-cs_export()
-    
+include_directories(
+  ${catkin_INCLUDE_DIRS}
+)
