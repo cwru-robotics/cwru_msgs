@@ -31,6 +31,8 @@ find_package(Boost REQUIRED COMPONENTS system)
    PatchParams.msg
    PoseAffine.msg
    PoseAffineStamped.msg
+   VecOfPoseAffines.msg
+   VecOfPoseAffinesStamped.msg
  )
 
 generate_messages(
