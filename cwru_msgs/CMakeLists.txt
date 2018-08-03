@@ -27,6 +27,7 @@ find_package(Boost REQUIRED COMPONENTS system)
    Path.msg
    PathSegment.msg
    VecOfDoubles.msg
+   VecOfStrings.msg
    PatchParams.msg
    PoseAffine.msg
    PoseAffineStamped.msg
