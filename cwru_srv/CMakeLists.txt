@@ -28,7 +28,6 @@ generate_messages(
 
 catkin_package(
   CATKIN_DEPENDS message_runtime geometry_msgs nav_msgs roscpp std_msgs
-  DEPENDS system_lib
 )
 
 include_directories(
